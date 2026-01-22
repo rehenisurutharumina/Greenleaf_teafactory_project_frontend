@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GreenLeaf Tea Factory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">🍃</div>
+        <div>
+          <h1>GreenLeaf Tea Factory</h1>
+          <p class="tag">From fresh leaves to premium tea</p>
+        </div>
+      </div>
+
+      <button class="menuBtn" id="menuBtn">☰</button>
+
+      <nav class="links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container heroGrid">
+      <div>
+        <h2>Quality Tea, Made with Care</h2>
+        <p>
+          We process fresh green leaves into high-quality tea using modern machines
+          and strict quality checks.
+        </p>
+        <div class="heroActions">
+          <a class="btn" href="#products">View Products</a>
+          <a class="btn btnOutline" href="#contact">Contact Us</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>10+ yrs</h3><p>Experience</p>
+          </div>
+          <div class="stat">
+            <h3>ISO</h3><p>Quality focus</p>
+          </div>
+          <div class="stat">
+            <h3>Export</h3><p>Ready</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroCard">
+        <h3>Get a Quick Quote</h3>
+        <form id="quoteForm" class="form">
+          <label>
+            Name
+            <input type="text" id="qName" placeholder="Your name" required />
+          </label>
+          <label>
+            Product
+            <select id="qProduct" required>
+              <option value="">Select</option>
+              <option>Black Tea</option>
+              <option>Green Tea</option>
+              <option>Tea Dust</option>
+            </select>
+          </label>
+          <label>
+            Quantity (kg)
+            <input type="number" id="qQty" min="1" placeholder="e.g., 50" required />
+          </label>
+          <button class="btn" type="submit">Submit</button>
+          <p class="formMsg" id="formMsg"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Our Factory</h2>
+      <p class="muted">
+        GreenLeaf Tea Factory follows a clean process, trained staff, and consistent production to deliver
+        reliable tea grades for local and export markets.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Quality Control</h3>
+          <p>Moisture checks, tasting, grading, and packaging inspections.</p>
+        </div>
+        <div class="card">
+          <h3>Modern Processing</h3>
+          <p>Efficient withering, rolling, oxidation, drying, and sorting.</p>
+        </div>
+        <div class="card">
+          <h3>Safe Packaging</h3>
+          <p>Moisture-proof packing to preserve aroma and freshness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="section alt">
+    <div class="container">
+      <h2>Our Products</h2>
+      <p class="muted">Choose from popular tea grades. (You can change names easily.)</p>
+
+      <div class="cards">
+        <div class="card product">
+          <div class="badge">Best Seller</div>
+          <h3>Black Tea (OP/BOP)</h3>
+          <p>Strong color and aroma, ideal for daily tea.</p>
+          <button class="btnSmall" data-product="Black Tea (OP/BOP)">Request Price</button>
+        </div>
+
+        <div class="card product">
+          <div class="badge">Fresh</div>
+          <h3>Green Tea</h3>
+          <p>Light taste, minimal oxidation, clean flavor.</p>
+          <button class="btnSmall" data-product="Green Tea">Request Price</button>
+        </div>
+
+        <div class="card product">
+          <div class="badge">Bulk</div>
+          <h3>Dust / Fannings</h3>
+          <p>Fast brewing, suitable for tea bags and bulk supply.</p>
+          <button class="btnSmall" data-product="Dust / Fannings">Request Price</button>
+        </div>
+      </div>
+
+      <div class="notice" id="notice"></div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="section">
+    <div class="container">
+      <h2>Factory Process</h2>
+      <div class="timeline">
+        <div class="step"><span>1</span><div><h3>Receiving</h3><p>Weigh and inspect fresh leaves.</p></div></div>
+        <div class="step"><span>2</span><div><h3>Withering</h3><p>Reduce moisture to make leaves soft.</p></div></div>
+        <div class="step"><span>3</span><div><h3>Rolling</h3><p>Crush and twist to release enzymes.</p></div></div>
+        <div class="step"><span>4</span><div><h3>Oxidation</h3><p>Develop color and aroma (for black tea).</p></div></div>
+        <div class="step"><span>5</span><div><h3>Drying</h3><p>Stop oxidation and preserve quality.</p></div></div>
+        <div class="step"><span>6</span><div><h3>Sorting</h3><p>Grade tea by size (OP/BOP/Dust).</p></div></div>
+        <div class="step"><span>7</span><div><h3>Packing</h3><p>Pack in moisture-proof bags for delivery.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section alt">
+    <div class="container contactGrid">
+      <div>
+        <h2>Contact</h2>
+        <p class="muted">Send a message. This demo shows an alert (no backend needed).</p>
+
+        <div class="contactInfo">
+          <p><b>📍 Address:</b> Nuwara Eliya, Sri Lanka</p>
+          <p><b>📞 Phone:</b> +94 7X XXX XXXX</p>
+          <p><b>✉ Email:</b> greenleaf@example.com</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Send Message</h3>
+        <form id="contactForm" class="form">
+          <label>
+            Your Email
+            <input type="email" id="cEmail" placeholder="name@gmail.com" required />
+          </label>
+          <label>
+            Message
+            <textarea id="cMsg" rows="4" placeholder="Write your message..." required></textarea>
+          </label>
+          <button class="btn" type="submit">Send</button>
+          <p class="formMsg" id="contactMsg"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container foot">
+      <p>© <span id="year"></span> GreenLeaf Tea Factory. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
