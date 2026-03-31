@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart - GreenLeaf Tea Factory</title>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <a href="/" class="brand nav-brand-link">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img">
+              <defs>
+                <linearGradient id="cartLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#d8ff9a"/>
+                  <stop offset="55%" stop-color="#54b948"/>
+                  <stop offset="100%" stop-color="#1d6f34"/>
+                </linearGradient>
+              </defs>
+              <path d="M31 8c-13 7-20 19-20 31 0 9 7 15 15 15 17 0 29-18 28-40-8 1-16 5-23 13 1-7 1-13 0-19Z" fill="url(#cartLeaf)"/>
+            </svg>
+          </div>
+          <div><h1>GreenLeaf</h1><span class="tag">Shopping Cart</span></div>
+        </a>
+        <nav class="links">
+          <a href="/">Home</a>
+          <a href="/src/pages/shop.html">Shop</a>
+          <a href="/src/pages/cart.html" class="active">Cart</a>
+          <span id="authNav"></span>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="section page-main">
+    <div class="container">
+      <h2>Your Cart</h2>
+      <p class="muted" id="cartSubtitle">Loading your cart...</p>
+
+      <div class="cart-list" id="cartList"></div>
+
+      <div class="cart-summary" id="cartSummary" style="display:none">
+        <h3>Order Summary</h3>
+        <div id="summaryRows"></div>
+        <div class="cart-total-row grand">
+          <span>Total</span>
+          <span id="grandTotal">$0.00</span>
+        </div>
+
+        <div class="checkout-form">
+          <label>
+            Shipping Address
+            <textarea id="shippingAddress" placeholder="Enter your delivery address" rows="2"></textarea>
+          </label>
+          <label>
+            Payment Method
+            <select id="paymentMethod">
+              <option value="Cash on Delivery">Cash on Delivery</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Card Payment">Card Payment</option>
+            </select>
+          </label>
+          <button class="btn auth-btn" id="checkoutBtn">
+            <span id="checkoutText">Place Order</span>
+            <span class="loader" id="checkoutLoader" style="display:none"></span>
+          </button>
+          <p class="auth-msg" id="checkoutMsg"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./cart.js"></script>
+</body>
+</html>

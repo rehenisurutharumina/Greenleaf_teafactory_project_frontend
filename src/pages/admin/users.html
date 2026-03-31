@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Users - GreenLeaf Admin</title>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <a href="/" class="sidebar-brand"><div class="logo"><svg viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d8ff9a"/><stop offset="55%" stop-color="#54b948"/><stop offset="100%" stop-color="#1d6f34"/></linearGradient></defs><path d="M31 8c-13 7-20 19-20 31 0 9 7 15 15 15 17 0 29-18 28-40-8 1-16 5-23 13 1-7 1-13 0-19Z" fill="url(#lg)"/></svg></div><div><h3>GreenLeaf</h3><p>Admin Panel</p></div></a>
+      <nav class="sidebar-nav">
+        <a href="/src/pages/admin/dashboard.html"><span class="nav-icon" data-icon="DB"></span> Dashboard</a>
+        <a href="/src/pages/admin/products.html"><span class="nav-icon" data-icon="PR"></span> Products</a>
+        <a href="/src/pages/admin/categories.html"><span class="nav-icon" data-icon="CT"></span> Categories</a>
+        <a href="/src/pages/admin/orders.html"><span class="nav-icon" data-icon="OD"></span> Orders</a>
+        <a href="/src/pages/admin/users.html" class="active"><span class="nav-icon" data-icon="US"></span> Users</a>
+        <a href="/src/pages/admin/inventory.html"><span class="nav-icon" data-icon="IV"></span> Inventory</a>
+        <a href="/src/pages/admin/messages.html"><span class="nav-icon" data-icon="MS"></span> Messages</a>
+      </nav>
+      <div class="sidebar-footer"><div class="sidebar-user"><div class="sidebar-avatar" id="userAvatar">A</div><div class="sidebar-user-info"><strong id="userName">Admin</strong><span>Administrator</span></div></div><button class="sidebar-logout" id="logoutBtn">Sign Out</button></div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div><h1>Manage Users</h1><p>Create accounts and control user status</p></div>
+        <div class="page-actions"><button class="btn btnSmall" id="addUserBtn">Add User</button></div>
+      </div>
+
+      <div class="data-table-container">
+        <div class="data-table-header"><h3>Users</h3></div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Created</th><th>Actions</th></tr></thead>
+          <tbody id="usersBody"><tr><td colspan="6" class="table-empty">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="userModal">
+    <div class="modal">
+      <h3>Add User</h3>
+      <form id="userForm" class="form">
+        <label>Full Name <input type="text" id="uName" required /></label>
+        <label>Email <input type="email" id="uEmail" required /></label>
+        <label>Phone <input type="text" id="uPhone" /></label>
+        <label>Password <input type="password" id="uPassword" minlength="6" required /></label>
+        <label>Role
+          <select id="uRole">
+            <option>Customer</option>
+            <option>Staff</option>
+            <option>Admin</option>
+          </select>
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" id="cancelUserModal">Cancel</button>
+          <button type="submit" class="btn btnSmall">Create User</button>
+        </div>
+        <p class="auth-msg" id="userMsg"></p>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="./users.js"></script>
+</body>
+</html>

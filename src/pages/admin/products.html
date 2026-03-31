@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Products - GreenLeaf Admin</title>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="/" class="sidebar-brand">
+        <div class="logo"><svg viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d8ff9a"/><stop offset="55%" stop-color="#54b948"/><stop offset="100%" stop-color="#1d6f34"/></linearGradient></defs><path d="M31 8c-13 7-20 19-20 31 0 9 7 15 15 15 17 0 29-18 28-40-8 1-16 5-23 13 1-7 1-13 0-19Z" fill="url(#lg)"/></svg></div>
+        <div><h3>GreenLeaf</h3><p>Admin Panel</p></div>
+      </a>
+      <nav class="sidebar-nav">
+        <a href="/src/pages/admin/dashboard.html"><span class="nav-icon" data-icon="DB"></span> Dashboard</a>
+        <a href="/src/pages/admin/products.html" class="active"><span class="nav-icon" data-icon="PR"></span> Products</a>
+        <a href="/src/pages/admin/categories.html"><span class="nav-icon" data-icon="CT"></span> Categories</a>
+        <a href="/src/pages/admin/orders.html"><span class="nav-icon" data-icon="OD"></span> Orders</a>
+        <a href="/src/pages/admin/users.html"><span class="nav-icon" data-icon="US"></span> Users</a>
+        <a href="/src/pages/admin/inventory.html"><span class="nav-icon" data-icon="IV"></span> Inventory</a>
+        <a href="/src/pages/admin/messages.html"><span class="nav-icon" data-icon="MS"></span> Messages</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user"><div class="sidebar-avatar" id="userAvatar">A</div><div class="sidebar-user-info"><strong id="userName">Admin</strong><span>Administrator</span></div></div>
+        <button class="sidebar-logout" id="logoutBtn">Sign Out</button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div><h1>Manage Products</h1><p>Add, edit, and manage your tea products</p></div>
+        <div class="page-actions">
+          <button class="btn btnSmall" id="addProductBtn">Add Product</button>
+        </div>
+      </div>
+
+      <div class="data-table-container">
+        <div class="data-table-header"><h3>All Products</h3></div>
+        <table class="data-table">
+          <thead>
+            <tr><th>Name</th><th>Category</th><th>Grade</th><th>Price/kg</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="productsBody">
+            <tr><td colspan="6" class="table-empty">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <h3 id="modalTitle">Add Product</h3>
+      <form class="form" id="productForm">
+        <label>Name <input type="text" id="pName" required /></label>
+        <label>Description <textarea id="pDesc" rows="2"></textarea></label>
+        <label>Grade <input type="text" id="pGrade" /></label>
+        <label>Price per kg ($) <input type="number" step="0.01" min="0.01" id="pPrice" required /></label>
+        <label>Category <select id="pCategory"><option value="">None</option></select></label>
+        <label>Badge <input type="text" id="pBadge" placeholder="e.g. Best Seller" /></label>
+        <label class="checkbox-row"><input type="checkbox" id="pAvailable" checked /> Available</label>
+        <input type="hidden" id="pId" />
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" id="cancelModal">Cancel</button>
+          <button type="submit" class="btn btnSmall">Save Product</button>
+        </div>
+        <p class="auth-msg" id="formMsg"></p>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="./products.js"></script>
+</body>
+</html>
