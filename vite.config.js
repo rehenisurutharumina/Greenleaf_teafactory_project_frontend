@@ -12,4 +12,15 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    // Proxy API calls to the .NET backend during development
+    proxy: {
+      "/api": {
+        target: "http://localhost:5001",
+        changeOrigin: true,
+      },
+    },
+  },
+  // Ensure Vite resolves clean URLs like /admin → admin.html
+  appType: "mpa",
 });

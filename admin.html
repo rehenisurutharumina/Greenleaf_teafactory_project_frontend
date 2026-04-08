@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard — GreenLeaf Tea Factory</title>
+  <meta name="description" content="GreenLeaf Tea Factory Admin Panel — Manage orders, products, inventory, users and more." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body class="dashboard-body">
 
-  <!-- Sidebar -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SIDEBAR                                                 -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <a href="index.html" class="logo">
@@ -18,112 +21,410 @@
       </a>
     </div>
     <nav class="sidebar-nav">
-      <a href="#" class="sidebar-link active" data-section="overview">📊 Overview</a>
-      <a href="#" class="sidebar-link" data-section="orders">📦 Orders</a>
-      <a href="#" class="sidebar-link" data-section="products">🍃 Products</a>
-      <a href="#" class="sidebar-link" data-section="inventory">📋 Inventory</a>
-      <a href="#" class="sidebar-link" data-section="users">👥 Users</a>
-      <a href="#" class="sidebar-link" data-section="quotes">📝 Quotes</a>
-      <a href="#" class="sidebar-link" data-section="messages">✉️ Messages</a>
+      <a href="#" class="sidebar-link active" data-section="overview">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Overview
+      </a>
+      <a href="#" class="sidebar-link" data-section="analytics">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </a>
+      <a href="#" class="sidebar-link" data-section="orders">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        Orders
+      </a>
+      <a href="#" class="sidebar-link" data-section="products">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Products
+      </a>
+      <a href="#" class="sidebar-link" data-section="inventory">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16h6"/><path d="M19 13v6"/><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4"/></svg>
+        Inventory
+      </a>
+      <a href="#" class="sidebar-link" data-section="users">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Users
+      </a>
+      <a href="#" class="sidebar-link" data-section="quotes">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Quotes
+      </a>
+      <a href="#" class="sidebar-link" data-section="messages">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Messages
+      </a>
     </nav>
     <div class="sidebar-footer">
-      <div class="sidebar-user" id="sidebarUser">Admin</div>
-      <button class="sidebar-logout" onclick="logout()">Logout</button>
+      <div class="sidebar-user-info">
+        <div class="sidebar-avatar" id="sidebarAvatar">A</div>
+        <div class="sidebar-user-meta">
+          <span class="sidebar-user" id="sidebarUser">Admin</span>
+          <span class="sidebar-role">Administrator</span>
+        </div>
+      </div>
+      <button class="sidebar-logout" onclick="logout()" title="Logout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
     </div>
   </aside>
 
-  <!-- Main Content -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MAIN CONTENT                                            -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <main class="dash-main">
     <header class="dash-header">
-      <button class="dash-menu-btn" id="dashMenuBtn">☰</button>
-      <h1 class="dash-page-title" id="pageTitle">Dashboard Overview</h1>
+      <button class="dash-menu-btn" id="dashMenuBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="dash-header-left">
+        <h1 class="dash-page-title" id="pageTitle">Dashboard Overview</h1>
+        <span class="dash-breadcrumb">Admin Panel</span>
+      </div>
       <div class="dash-header-right">
+        <span class="dash-date" id="headerDate"></span>
+        <!-- Notification Bell -->
+        <button class="notification-bell" id="notificationBell" onclick="toggleNotificationPanel()" title="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="notification-badge" id="notifBadge" style="display:none;">0</span>
+        </button>
         <span id="welcomeText">Welcome, Admin</span>
-        <a href="index.html" class="dash-home-link">← Back to Site</a>
+        <a href="index.html" class="dash-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Back to Site
+        </a>
       </div>
     </header>
 
-    <!-- OVERVIEW SECTION -->
-    <section class="dash-section active" id="sec-overview">
-      <div class="stat-cards" id="statCards">
-        <div class="stat-card"><div class="stat-icon">👥</div><div class="stat-info"><span class="stat-number" id="statUsers">—</span><span class="stat-label">Total Users</span></div></div>
-        <div class="stat-card"><div class="stat-icon">🍃</div><div class="stat-info"><span class="stat-number" id="statProducts">—</span><span class="stat-label">Products</span></div></div>
-        <div class="stat-card"><div class="stat-icon">📦</div><div class="stat-info"><span class="stat-number" id="statOrders">—</span><span class="stat-label">Orders</span></div></div>
-        <div class="stat-card warning"><div class="stat-icon">⚠️</div><div class="stat-info"><span class="stat-number" id="statLowStock">—</span><span class="stat-label">Low Stock</span></div></div>
+    <!-- Notification Dropdown Panel -->
+    <div class="notification-panel" id="notificationPanel">
+      <div class="notif-panel-header">
+        <h3>Notifications</h3>
+        <div class="notif-panel-summary" id="notifSummary"></div>
       </div>
+      <div class="notif-panel-body" id="notifList">
+        <div class="notif-loading">
+          <div class="loading-spinner"></div>
+          <span>Loading notifications...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────── OVERVIEW ─────── -->
+    <section class="dash-section active" id="sec-overview">
+      <!-- Welcome Banner -->
+      <div class="cust-welcome-banner" id="adminWelcomeBanner">
+        <div class="welcome-content">
+          <div class="welcome-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8c.7-1 1-2.2 1-3.5A6.5 6.5 0 0 0 11.5 11c-.3.1-.5.2-.7.3"/><path d="M6.3 12.7c-1.5 1.5-2.3 3.5-2.3 5.8 0 1 .2 2 .5 2.8"/><path d="M12 22c3.3 0 6-2.7 6-6 0-1.5-.5-2.9-1.4-4"/></svg>
+          </div>
+          <div>
+            <h2 id="welcomeBannerName">Welcome back!</h2>
+            <p>Here is an overview of your factory operations today.</p>
+          </div>
+        </div>
+        <div class="welcome-time" id="welcomeTime"></div>
+      </div>
+
+      <div class="stat-cards">
+        <div class="stat-card"><div class="stat-icon icon-revenue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="stat-info"><span class="stat-number" id="statRevenue"><span class="loading-placeholder">—</span></span><span class="stat-label">Total Revenue</span></div></div>
+        <div class="stat-card"><div class="stat-icon icon-orders"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="stat-info"><span class="stat-number" id="statOrders"><span class="loading-placeholder">—</span></span><span class="stat-label">Total Orders</span></div></div>
+        <div class="stat-card"><div class="stat-icon icon-products"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="stat-info"><span class="stat-number" id="statProducts"><span class="loading-placeholder">—</span></span><span class="stat-label">Active Products</span></div></div>
+        <div class="stat-card"><div class="stat-icon icon-users"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="stat-info"><span class="stat-number" id="statUsers"><span class="loading-placeholder">—</span></span><span class="stat-label">Total Users</span></div></div>
+        <div class="stat-card card-warning"><div class="stat-icon icon-warning"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="stat-info"><span class="stat-number" id="statLowStock"><span class="loading-placeholder">—</span></span><span class="stat-label">Low Stock</span></div></div>
+        <div class="stat-card"><div class="stat-icon icon-quotes"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="stat-info"><span class="stat-number" id="statPendingQuotes"><span class="loading-placeholder">—</span></span><span class="stat-label">Pending Quotes</span></div></div>
+        <div class="stat-card"><div class="stat-icon icon-messages"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="stat-info"><span class="stat-number" id="statUnreadMsgs"><span class="loading-placeholder">—</span></span><span class="stat-label">Unread Messages</span></div></div>
+        <div class="stat-card"><div class="stat-icon icon-categories"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div><div class="stat-info"><span class="stat-number" id="statCategories"><span class="loading-placeholder">—</span></span><span class="stat-label">Categories</span></div></div>
+      </div>
+
+      <!-- KPI Cards Row -->
+      <div class="kpi-cards" id="kpiCards">
+        <div class="kpi-card kpi-revenue">
+          <div class="kpi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="kpi-content">
+            <span class="kpi-value" id="kpiThisMonthRev">$0.00</span>
+            <span class="kpi-label">This Month Revenue</span>
+          </div>
+          <span class="kpi-trend" id="kpiRevTrend">—</span>
+        </div>
+        <div class="kpi-card kpi-orders">
+          <div class="kpi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <div class="kpi-content">
+            <span class="kpi-value" id="kpiThisMonthOrders">0</span>
+            <span class="kpi-label">This Month Orders</span>
+          </div>
+          <span class="kpi-trend" id="kpiOrderTrend">—</span>
+        </div>
+      </div>
+
+      <!-- Order Status Breakdown -->
+      <div class="overview-breakdown">
+        <div class="breakdown-card">
+          <div class="breakdown-header"><h3>Order Status</h3></div>
+          <div class="breakdown-bars" id="orderBreakdown">
+            <div class="breakdown-row"><span class="breakdown-label">Pending</span><div class="breakdown-bar"><div class="breakdown-fill pending" id="barPending" style="width:0%"></div></div><span class="breakdown-count" id="countPending">0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Processing</span><div class="breakdown-bar"><div class="breakdown-fill processing" id="barProcessing" style="width:0%"></div></div><span class="breakdown-count" id="countProcessing">0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Shipped</span><div class="breakdown-bar"><div class="breakdown-fill shipped" id="barShipped" style="width:0%"></div></div><span class="breakdown-count" id="countShipped">0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Delivered</span><div class="breakdown-bar"><div class="breakdown-fill delivered" id="barDelivered" style="width:0%"></div></div><span class="breakdown-count" id="countDelivered">0</span></div>
+          </div>
+        </div>
+      </div>
+
       <div class="dash-grid">
         <div class="dash-card">
-          <h3>Recent Orders</h3>
-          <div class="table-wrap"><table class="dash-table" id="recentOrdersTable"><thead><tr><th>ID</th><th>Customer</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead><tbody><tr><td colspan="5" class="empty-cell">Loading...</td></tr></tbody></table></div>
+          <div class="card-header"><h3>Recent Orders</h3></div>
+          <div class="table-wrap"><table class="dash-table" id="recentOrdersTable"><thead><tr><th>ID</th><th>Customer</th><th>Amount</th><th>Status</th><th>Payment</th><th>Date</th></tr></thead><tbody><tr><td colspan="6" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading orders...</span></div></td></tr></tbody></table></div>
         </div>
         <div class="dash-card">
-          <h3>Low Stock Alerts</h3>
-          <div id="lowStockList" class="alert-list"><p class="empty-cell">Loading...</p></div>
+          <div class="card-header"><h3>Low Stock Alerts</h3></div>
+          <div id="lowStockList" class="alert-list"><div class="loading-state"><div class="loading-spinner"></div><span>Loading stock data...</span></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ORDERS SECTION -->
+    <!-- ─────── ANALYTICS ─────── -->
+    <section class="dash-section" id="sec-analytics">
+      <div class="analytics-loading" id="analyticsLoading">
+        <div class="loading-state large">
+          <div class="loading-spinner"></div>
+          <span>Loading analytics data...</span>
+        </div>
+      </div>
+
+      <div class="analytics-content" id="analyticsContent" style="display:none;">
+        <!-- Monthly Sales Chart -->
+        <div class="chart-grid">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Monthly Sales Revenue</h3>
+              <span class="chart-subtitle">Last 12 months</span>
+            </div>
+            <div class="chart-body">
+              <canvas id="chartMonthlySales" width="600" height="280"></canvas>
+            </div>
+          </div>
+
+          <!-- Order Trends Chart -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Order Trends</h3>
+              <span class="chart-subtitle">Orders per month</span>
+            </div>
+            <div class="chart-body">
+              <canvas id="chartOrderTrends" width="600" height="280"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Products + Stock Overview in a row -->
+        <div class="chart-grid">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Top Selling Products</h3>
+              <span class="chart-subtitle">By total revenue</span>
+            </div>
+            <div class="chart-body">
+              <canvas id="chartTopProducts" width="600" height="300"></canvas>
+            </div>
+            <div class="chart-legend" id="topProductsLegend"></div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Stock Overview</h3>
+              <span class="chart-subtitle">Current inventory levels</span>
+            </div>
+            <div class="chart-body">
+              <canvas id="chartStockOverview" width="600" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quote Trends -->
+        <div class="chart-grid single">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Quote Request Trends</h3>
+              <span class="chart-subtitle">Last 6 months</span>
+            </div>
+            <div class="chart-body">
+              <canvas id="chartQuoteTrends" width="1200" height="280"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="analytics-empty" id="analyticsEmpty" style="display:none;">
+        <div class="empty-state-block">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#9aa59a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <h3>No Analytics Data Yet</h3>
+          <p>Analytics will appear here once you have orders, products, and other business data in the system.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────── ORDERS ─────── -->
     <section class="dash-section" id="sec-orders">
       <div class="dash-card full">
-        <div class="card-header"><h3>All Orders</h3></div>
-        <div class="table-wrap"><table class="dash-table" id="allOrdersTable"><thead><tr><th>ID</th><th>Customer</th><th>Email</th><th>Total</th><th>Status</th><th>Payment</th><th>Date</th><th>Actions</th></tr></thead><tbody><tr><td colspan="8" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>All Orders</h3>
+          <div class="card-toolbar">
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="orderSearch" class="toolbar-input" placeholder="Search orders..." />
+            </div>
+            <select id="orderStatusFilter" class="toolbar-select">
+              <option value="">All Status</option>
+              <option>Pending</option>
+              <option>Processing</option>
+              <option>Shipped</option>
+              <option>Delivered</option>
+              <option>Cancelled</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="allOrdersTable"><thead><tr><th>ID</th><th>Customer</th><th>Email</th><th>Total</th><th>Status</th><th>Payment</th><th>Date</th><th>Actions</th></tr></thead><tbody><tr><td colspan="8" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
 
-    <!-- PRODUCTS SECTION -->
+    <!-- ─────── PRODUCTS ─────── -->
     <section class="dash-section" id="sec-products">
       <div class="dash-card full">
-        <div class="card-header"><h3>Products</h3><button class="btn-sm btn-primary" onclick="openProductModal()">+ Add Product</button></div>
-        <div class="table-wrap"><table class="dash-table" id="productsTable"><thead><tr><th>ID</th><th>Name</th><th>Grade</th><th>Price/kg</th><th>Badge</th><th>Available</th><th>Actions</th></tr></thead><tbody><tr><td colspan="7" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>Product Catalog</h3>
+          <div class="card-toolbar">
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="productSearch" class="toolbar-input" placeholder="Search products..." />
+            </div>
+            <select id="productCategoryFilter" class="toolbar-select">
+              <option value="">All Categories</option>
+            </select>
+            <button class="btn-sm btn-primary" onclick="openProductModal()">+ Add Product</button>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="productsTable"><thead><tr><th>ID</th><th>Image</th><th>Name</th><th>Category</th><th>Grade</th><th>Price/kg</th><th>Badge</th><th>Status</th><th>Actions</th></tr></thead><tbody><tr><td colspan="9" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
 
-    <!-- INVENTORY SECTION -->
+    <!-- ─────── INVENTORY ─────── -->
     <section class="dash-section" id="sec-inventory">
       <div class="dash-card full">
-        <div class="card-header"><h3>Inventory</h3></div>
-        <div class="table-wrap"><table class="dash-table" id="inventoryTable"><thead><tr><th>Product</th><th>Stock (kg)</th><th>Reorder Level</th><th>Status</th><th>Actions</th></tr></thead><tbody><tr><td colspan="5" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>Inventory Management</h3>
+          <div class="card-toolbar">
+            <label class="toolbar-toggle">
+              <input type="checkbox" id="lowStockOnly" /> Show Low Stock Only
+            </label>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="inventoryTable"><thead><tr><th>Product</th><th>Stock (kg)</th><th>Reorder Level</th><th>Level</th><th>Status</th><th>Last Updated</th><th>Actions</th></tr></thead><tbody><tr><td colspan="7" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
 
-    <!-- USERS SECTION -->
+    <!-- ─────── USERS ─────── -->
     <section class="dash-section" id="sec-users">
       <div class="dash-card full">
-        <div class="card-header"><h3>User Management</h3><button class="btn-sm btn-primary" onclick="openUserModal()">+ Add User</button></div>
-        <div class="table-wrap"><table class="dash-table" id="usersTable"><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Active</th><th>Actions</th></tr></thead><tbody><tr><td colspan="7" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>User Management</h3>
+          <div class="card-toolbar">
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="userSearch" class="toolbar-input" placeholder="Search users..." />
+            </div>
+            <select id="userRoleFilter" class="toolbar-select">
+              <option value="">All Roles</option>
+              <option>Admin</option>
+              <option>Staff</option>
+              <option>Customer</option>
+            </select>
+            <button class="btn-sm btn-primary" onclick="openUserModal()">+ Add User</button>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="usersTable"><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead><tbody><tr><td colspan="8" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
 
-    <!-- QUOTES SECTION -->
+    <!-- ─────── QUOTES ─────── -->
     <section class="dash-section" id="sec-quotes">
       <div class="dash-card full">
-        <div class="card-header"><h3>Quote Requests</h3></div>
-        <div class="table-wrap"><table class="dash-table" id="quotesTable"><thead><tr><th>ID</th><th>Customer</th><th>Product</th><th>Qty (kg)</th><th>Email</th><th>Status</th><th>Date</th></tr></thead><tbody><tr><td colspan="7" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>Quote Requests</h3>
+          <div class="card-toolbar">
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="quoteSearch" class="toolbar-input" placeholder="Search quotes..." />
+            </div>
+            <select id="quoteStatusFilter" class="toolbar-select">
+              <option value="">All Status</option>
+              <option>Pending</option>
+              <option>Reviewed</option>
+              <option>Replied</option>
+              <option>Rejected</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="quotesTable"><thead><tr><th>ID</th><th>Customer</th><th>Product</th><th>Qty (kg)</th><th>Contact</th><th>Quoted Amount</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead><tbody><tr><td colspan="9" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
 
-    <!-- MESSAGES SECTION -->
+    <!-- ─────── MESSAGES ─────── -->
     <section class="dash-section" id="sec-messages">
       <div class="dash-card full">
-        <div class="card-header"><h3>Contact Messages</h3></div>
-        <div class="table-wrap"><table class="dash-table" id="messagesTable"><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Read</th><th>Date</th><th>Actions</th></tr></thead><tbody><tr><td colspan="8" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>Contact Messages</h3>
+          <div class="card-toolbar">
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="messageSearch" class="toolbar-input" placeholder="Search messages..." />
+            </div>
+            <select id="messageReadFilter" class="toolbar-select">
+              <option value="">All</option>
+              <option value="unread">Unread</option>
+              <option value="read">Read</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="messagesTable"><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead><tbody><tr><td colspan="8" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
   </main>
 
-  <!-- Add Product Modal -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODALS                                                  -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <!-- Add / Edit Product Modal -->
   <div class="modal-overlay" id="productModal">
-    <div class="modal" style="position:relative;max-width:500px;">
-      <button class="modal-close" onclick="closeProductModal()">&times;</button>
-      <h2>Add Product</h2>
+    <div class="modal modal-md">
+      <div class="modal-header">
+        <h2 id="productModalTitle">Add Product</h2>
+        <button class="modal-close" onclick="closeProductModal()">&times;</button>
+      </div>
       <form id="addProductForm">
-        <div class="form-group"><label class="form-label">Name</label><input class="form-input" id="pName" required /></div>
-        <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="pDesc" rows="2"></textarea></div>
-        <div class="form-group"><label class="form-label">Grade</label><input class="form-input" id="pGrade" /></div>
-        <div class="form-group"><label class="form-label">Price / kg ($)</label><input class="form-input" type="number" step="0.01" id="pPrice" required /></div>
-        <div class="form-group"><label class="form-label">Badge</label><input class="form-input" id="pBadge" placeholder="e.g. Best Seller" /></div>
-        <button type="submit" class="btn-submit">Create Product</button>
+        <input type="hidden" id="pEditId" />
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Name *</label><input class="form-input" id="pName" required /></div>
+          <div class="form-group"><label class="form-label">Grade</label><input class="form-input" id="pGrade" placeholder="e.g. BOPF, OP" /></div>
+        </div>
+        <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="pDesc" rows="2" placeholder="Product description..."></textarea></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Price / kg ($) *</label><input class="form-input" type="number" step="0.01" min="0.01" id="pPrice" required /></div>
+          <div class="form-group"><label class="form-label">Category</label><select class="form-select" id="pCategory"><option value="">None</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Badge</label><input class="form-input" id="pBadge" placeholder="e.g. Best Seller" /></div>
+          <div class="form-group">
+            <label class="form-label">Product Image</label>
+            <input class="form-input" type="file" id="pImageFile" accept="image/*" />
+            <input type="hidden" id="pImage" />
+            <div id="pImagePreview" style="margin-top: 5px; font-size: 0.85em;"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="toolbar-toggle"><input type="checkbox" id="pAvailable" checked /> Product is available</label>
+        </div>
+        <button type="submit" class="btn-submit" id="productSubmitBtn">Create Product</button>
         <div class="form-message" id="productMsg"></div>
       </form>
     </div>
@@ -131,15 +432,24 @@
 
   <!-- Add User Modal -->
   <div class="modal-overlay" id="userModal">
-    <div class="modal" style="position:relative;max-width:500px;">
-      <button class="modal-close" onclick="closeUserModal()">&times;</button>
-      <h2>Add User</h2>
+    <div class="modal modal-md">
+      <div class="modal-header">
+        <h2>Add User</h2>
+        <button class="modal-close" onclick="closeUserModal()">&times;</button>
+      </div>
       <form id="addUserForm">
-        <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="uName" required /></div>
-        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="uEmail" required /></div>
-        <div class="form-group"><label class="form-label">Password</label><input class="form-input" type="password" id="uPass" required minlength="6" /></div>
-        <div class="form-group"><label class="form-label">Phone</label><input class="form-input" id="uPhone" /></div>
-        <div class="form-group"><label class="form-label">Role</label><select class="form-select" id="uRole"><option>Customer</option><option>Staff</option><option>Admin</option></select></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Full Name *</label><input class="form-input" id="uName" required /></div>
+          <div class="form-group"><label class="form-label">Email *</label><input class="form-input" type="email" id="uEmail" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Password *</label><input class="form-input" type="password" id="uPass" required minlength="6" /></div>
+          <div class="form-group"><label class="form-label">Phone</label><input class="form-input" id="uPhone" /></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Role</label>
+          <select class="form-select" id="uRole"><option>Customer</option><option>Staff</option><option>Admin</option></select>
+        </div>
         <button type="submit" class="btn-submit">Create User</button>
         <div class="form-message" id="userMsg"></div>
       </form>
@@ -148,23 +458,38 @@
 
   <!-- Update Order Status Modal -->
   <div class="modal-overlay" id="orderStatusModal">
-    <div class="modal" style="position:relative;max-width:420px;">
-      <button class="modal-close" onclick="closeOrderStatusModal()">&times;</button>
-      <h2>Update Order #<span id="osOrderId"></span></h2>
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>Update Order #<span id="osOrderId"></span></h2>
+        <button class="modal-close" onclick="closeOrderStatusModal()">&times;</button>
+      </div>
       <form id="orderStatusForm">
         <div class="form-group"><label class="form-label">Order Status</label><select class="form-select" id="osStatus"><option>Pending</option><option>Processing</option><option>Shipped</option><option>Delivered</option><option>Cancelled</option></select></div>
         <div class="form-group"><label class="form-label">Payment Status</label><select class="form-select" id="osPayment"><option>Pending</option><option>Paid</option><option>Refunded</option></select></div>
-        <button type="submit" class="btn-submit">Update</button>
+        <button type="submit" class="btn-submit">Update Order</button>
         <div class="form-message" id="orderStatusMsg"></div>
       </form>
     </div>
   </div>
 
+  <!-- Order Detail Modal -->
+  <div class="modal-overlay" id="orderDetailModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h2>Order #<span id="odOrderId"></span></h2>
+        <button class="modal-close" onclick="closeOrderDetailModal()">&times;</button>
+      </div>
+      <div class="order-detail" id="orderDetail"></div>
+    </div>
+  </div>
+
   <!-- Update Stock Modal -->
   <div class="modal-overlay" id="stockModal">
-    <div class="modal" style="position:relative;max-width:420px;">
-      <button class="modal-close" onclick="closeStockModal()">&times;</button>
-      <h2>Update Stock</h2>
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>Update Stock</h2>
+        <button class="modal-close" onclick="closeStockModal()">&times;</button>
+      </div>
       <form id="stockForm">
         <input type="hidden" id="stockId" />
         <div class="form-group"><label class="form-label">Quantity (kg)</label><input class="form-input" type="number" step="0.01" id="stockQty" required /></div>
@@ -172,6 +497,38 @@
         <button type="submit" class="btn-submit">Update Stock</button>
         <div class="form-message" id="stockMsg"></div>
       </form>
+    </div>
+  </div>
+
+  <!-- Quote Response Modal -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal modal-md">
+      <div class="modal-header">
+        <h2>Quote #<span id="qmId"></span></h2>
+        <button class="modal-close" onclick="closeQuoteModal()">&times;</button>
+      </div>
+      <div class="quote-detail" id="quoteDetail"></div>
+      <form id="quoteResponseForm">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Status</label><select class="form-select" id="qmStatus"><option>Pending</option><option>Reviewed</option><option>Replied</option><option>Rejected</option></select></div>
+          <div class="form-group"><label class="form-label">Quoted Amount ($)</label><input class="form-input" type="number" step="0.01" min="0" id="qmAmount" placeholder="e.g. 450.00" /></div>
+        </div>
+        <div class="form-group"><label class="form-label">Admin Notes</label><textarea class="form-textarea" id="qmNotes" rows="3" placeholder="Pricing details, delivery info, etc."></textarea></div>
+        <button type="submit" class="btn-submit">Update Quote</button>
+        <div class="form-message" id="quoteMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Message Detail Modal -->
+  <div class="modal-overlay" id="messageModal">
+    <div class="modal modal-md">
+      <div class="modal-header">
+        <h2>Message #<span id="mmId"></span></h2>
+        <button class="modal-close" onclick="closeMessageModal()">&times;</button>
+      </div>
+      <div class="message-detail" id="messageDetail"></div>
+      <div class="modal-actions" id="messageActions"></div>
     </div>
   </div>
 

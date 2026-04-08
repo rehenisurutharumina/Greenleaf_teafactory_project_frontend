@@ -4,82 +4,308 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Staff Dashboard — GreenLeaf Tea Factory</title>
+  <meta name="description" content="GreenLeaf Tea Factory Staff Dashboard — Manage tasks, track progress, view inventory, and monitor operations." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body class="dashboard-body">
 
-  <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar">
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SIDEBAR                                                 -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <aside class="sidebar staff-sidebar" id="sidebar">
     <div class="sidebar-header">
       <a href="index.html" class="logo">
         <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M17 8c.7-1 1-2.2 1-3.5A6.5 6.5 0 0 0 11.5 11c-.3.1-.5.2-.7.3"/><path d="M6.3 12.7c-1.5 1.5-2.3 3.5-2.3 5.8 0 1 .2 2 .5 2.8"/><path d="M12 22c3.3 0 6-2.7 6-6 0-1.5-.5-2.9-1.4-4"/><path d="M7.5 16.5c1.4-1.4 3.3-2.2 5.3-2.2"/></svg></div>
-        <div class="logo-text"><span class="logo-name">GreenLeaf</span><span class="logo-tagline">Staff Panel</span></div>
+        <div class="logo-text"><span class="logo-name">GreenLeaf</span><span class="logo-tagline">Staff Portal</span></div>
       </a>
     </div>
+
+    <!-- Staff role indicator -->
+    <div class="staff-role-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Staff Access</span>
+    </div>
+
     <nav class="sidebar-nav">
-      <a href="#" class="sidebar-link active" data-section="overview">📊 Overview</a>
-      <a href="#" class="sidebar-link" data-section="tasks">📋 My Tasks</a>
-      <a href="#" class="sidebar-link" data-section="inventory">📦 Inventory</a>
+      <a href="#" class="sidebar-link active" data-section="overview" id="nav-overview">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Overview
+      </a>
+      <a href="#" class="sidebar-link" data-section="tasks" id="nav-tasks">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        My Tasks
+      </a>
+      <a href="#" class="sidebar-link" data-section="inventory" id="nav-inventory">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        Inventory
+      </a>
+
+      <!-- Restricted section notice -->
+      <div class="sidebar-restricted">
+        <div class="restricted-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Admin Only
+        </div>
+        <div class="restricted-items">
+          <span>Analytics</span>
+          <span>Orders Mgmt</span>
+          <span>Products</span>
+          <span>Users</span>
+          <span>Quotes</span>
+          <span>Messages</span>
+        </div>
+      </div>
     </nav>
+
     <div class="sidebar-footer">
-      <div class="sidebar-user" id="sidebarUser">Staff</div>
-      <button class="sidebar-logout" onclick="logout()">Logout</button>
+      <div class="sidebar-user-info">
+        <div class="sidebar-avatar" id="sidebarAvatar">S</div>
+        <div class="sidebar-user-meta">
+          <span class="sidebar-user" id="sidebarUser">Staff</span>
+          <span class="sidebar-role">Factory Staff</span>
+        </div>
+      </div>
+      <button class="sidebar-logout" onclick="logout()" title="Logout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
     </div>
   </aside>
 
-  <!-- Main Content -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MAIN CONTENT                                            -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <main class="dash-main">
     <header class="dash-header">
-      <button class="dash-menu-btn" id="dashMenuBtn">☰</button>
-      <h1 class="dash-page-title" id="pageTitle">Staff Dashboard</h1>
+      <button class="dash-menu-btn" id="dashMenuBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="dash-header-left">
+        <h1 class="dash-page-title" id="pageTitle">Staff Dashboard</h1>
+        <span class="dash-breadcrumb">Staff Portal • Limited Access</span>
+      </div>
       <div class="dash-header-right">
-        <span id="welcomeText">Welcome, Staff</span>
-        <a href="index.html" class="dash-home-link">← Back to Site</a>
+        <span class="dash-date" id="headerDate"></span>
+        <div class="staff-greeting" id="staffGreeting">
+          <div class="greeting-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <span id="welcomeText">Welcome, Staff</span>
+        </div>
+        <a href="index.html" class="dash-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Back to Site
+        </a>
       </div>
     </header>
 
-    <!-- OVERVIEW -->
+    <!-- ─────── OVERVIEW ─────── -->
     <section class="dash-section active" id="sec-overview">
-      <div class="stat-cards">
-        <div class="stat-card"><div class="stat-icon">📋</div><div class="stat-info"><span class="stat-number" id="statAssigned">—</span><span class="stat-label">Assigned Tasks</span></div></div>
-        <div class="stat-card warning"><div class="stat-icon">⏳</div><div class="stat-info"><span class="stat-number" id="statPending">—</span><span class="stat-label">Pending</span></div></div>
-        <div class="stat-card"><div class="stat-icon">🔄</div><div class="stat-info"><span class="stat-number" id="statInProgress">—</span><span class="stat-label">In Progress</span></div></div>
-        <div class="stat-card success"><div class="stat-icon">✅</div><div class="stat-info"><span class="stat-number" id="statCompleted">—</span><span class="stat-label">Completed</span></div></div>
+      <!-- Welcome Banner -->
+      <div class="staff-welcome-banner" id="staffWelcomeBanner">
+        <div class="welcome-content">
+          <div class="welcome-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8c.7-1 1-2.2 1-3.5A6.5 6.5 0 0 0 11.5 11c-.3.1-.5.2-.7.3"/><path d="M6.3 12.7c-1.5 1.5-2.3 3.5-2.3 5.8 0 1 .2 2 .5 2.8"/><path d="M12 22c3.3 0 6-2.7 6-6 0-1.5-.5-2.9-1.4-4"/></svg>
+          </div>
+          <div>
+            <h2 id="welcomeBannerName">Good day!</h2>
+            <p>Here's your operational summary. Stay on top of your tasks and monitor inventory levels.</p>
+          </div>
+        </div>
+        <div class="welcome-time" id="welcomeTime"></div>
       </div>
+
+      <!-- Stat Cards -->
+      <div class="stat-cards">
+        <div class="stat-card staff-stat-card">
+          <div class="stat-icon icon-orders"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="stat-info"><span class="stat-number" id="statAssigned"><span class="loading-placeholder">—</span></span><span class="stat-label">Assigned Tasks</span></div>
+        </div>
+        <div class="stat-card staff-stat-card card-warning">
+          <div class="stat-icon icon-warning"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="stat-info"><span class="stat-number" id="statPending"><span class="loading-placeholder">—</span></span><span class="stat-label">Pending</span></div>
+        </div>
+        <div class="stat-card staff-stat-card">
+          <div class="stat-icon icon-products"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+          <div class="stat-info"><span class="stat-number" id="statInProgress"><span class="loading-placeholder">—</span></span><span class="stat-label">In Progress</span></div>
+        </div>
+        <div class="stat-card staff-stat-card card-success">
+          <div class="stat-icon icon-users"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="stat-info"><span class="stat-number" id="statCompleted"><span class="loading-placeholder">—</span></span><span class="stat-label">Completed</span></div>
+        </div>
+      </div>
+
+      <!-- Performance + Inventory Summary Row -->
+      <div class="staff-overview-grid">
+        <!-- Task Completion Progress -->
+        <div class="breakdown-card staff-progress-card">
+          <div class="breakdown-header"><h3>Task Performance</h3></div>
+          <div class="staff-completion-ring" id="staffCompletionRing">
+            <canvas id="completionCanvas" width="140" height="140"></canvas>
+            <div class="ring-label">
+              <span class="ring-percent" id="ringPercent">0%</span>
+              <span class="ring-sub">Completion</span>
+            </div>
+          </div>
+          <div class="staff-task-breakdown" id="staffTaskBreakdown">
+            <div class="task-breakdown-item">
+              <span class="tbi-dot pending"></span>
+              <span class="tbi-label">Pending</span>
+              <span class="tbi-count" id="tbiPending">0</span>
+            </div>
+            <div class="task-breakdown-item">
+              <span class="tbi-dot inprogress"></span>
+              <span class="tbi-label">In Progress</span>
+              <span class="tbi-count" id="tbiInProgress">0</span>
+            </div>
+            <div class="task-breakdown-item">
+              <span class="tbi-dot completed"></span>
+              <span class="tbi-label">Completed</span>
+              <span class="tbi-count" id="tbiCompleted">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inventory Quick View -->
+        <div class="breakdown-card">
+          <div class="breakdown-header">
+            <h3>Inventory Quick View</h3>
+            <span class="staff-inv-total" id="staffInvTotal">— products</span>
+          </div>
+          <div id="staffStockSummary" class="alert-list">
+            <div class="loading-state"><div class="loading-spinner"></div><span>Loading stock data...</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Tasks -->
       <div class="dash-card full">
-        <h3>Recent Tasks</h3>
-        <div class="table-wrap"><table class="dash-table" id="recentTasksTable"><thead><tr><th>ID</th><th>Type</th><th>Order</th><th>Status</th><th>Notes</th><th>Assigned</th><th>Actions</th></tr></thead><tbody><tr><td colspan="7" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;vertical-align:-2px;opacity:0.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Recent Tasks
+          </h3>
+          <button class="btn-sm btn-outline" onclick="document.querySelector('[data-section=tasks]').click()">View All Tasks →</button>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="recentTasksTable"><thead><tr><th>ID</th><th>Type</th><th>Order</th><th>Status</th><th>Notes</th><th>Assigned</th><th>Actions</th></tr></thead><tbody><tr><td colspan="7" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading tasks...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
 
-    <!-- TASKS -->
+    <!-- ─────── ALL TASKS ─────── -->
     <section class="dash-section" id="sec-tasks">
       <div class="dash-card full">
-        <div class="card-header"><h3>All My Tasks</h3></div>
-        <div class="table-wrap"><table class="dash-table" id="allTasksTable"><thead><tr><th>ID</th><th>Type</th><th>Order</th><th>Status</th><th>Notes</th><th>Assigned</th><th>Completed</th><th>Actions</th></tr></thead><tbody><tr><td colspan="8" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;vertical-align:-2px;opacity:0.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            All My Tasks
+          </h3>
+          <div class="card-toolbar">
+            <select id="staffTaskStatusFilter" class="toolbar-select">
+              <option value="">All Status</option>
+              <option>Pending</option>
+              <option>InProgress</option>
+              <option>Completed</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="allTasksTable"><thead><tr><th>ID</th><th>Type</th><th>Order</th><th>Status</th><th>Notes</th><th>Assigned</th><th>Completed</th><th>Actions</th></tr></thead><tbody><tr><td colspan="8" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading tasks...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
 
-    <!-- INVENTORY -->
+    <!-- ─────── INVENTORY (Read + Limited Stock Update) ─────── -->
     <section class="dash-section" id="sec-inventory">
+      <!-- Staff inventory notice -->
+      <div class="staff-notice">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span>You have <strong>read access</strong> to inventory. Stock quantity can be updated, but reorder levels are managed by Admin.</span>
+      </div>
+
       <div class="dash-card full">
-        <div class="card-header"><h3>Inventory Overview</h3></div>
-        <div class="table-wrap"><table class="dash-table" id="inventoryTable"><thead><tr><th>Product</th><th>Stock (kg)</th><th>Reorder Level</th><th>Status</th></tr></thead><tbody><tr><td colspan="4" class="empty-cell">Loading...</td></tr></tbody></table></div>
+        <div class="card-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;vertical-align:-2px;opacity:0.6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            Inventory Overview
+          </h3>
+          <div class="card-toolbar">
+            <label class="toolbar-toggle">
+              <input type="checkbox" id="lowStockOnly" /> Show Low Stock Only
+            </label>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="dash-table" id="inventoryTable"><thead><tr><th>Product</th><th>Stock (kg)</th><th>Reorder Level</th><th>Level</th><th>Status</th><th>Last Updated</th><th>Actions</th></tr></thead><tbody><tr><td colspan="7" class="empty-cell"><div class="loading-state"><div class="loading-spinner"></div><span>Loading inventory...</span></div></td></tr></tbody></table></div>
       </div>
     </section>
   </main>
 
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODALS                                                  -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
   <!-- Update Task Status Modal -->
   <div class="modal-overlay" id="taskModal">
-    <div class="modal" style="position:relative;max-width:420px;">
-      <button class="modal-close" onclick="closeTaskModal()">&times;</button>
-      <h2>Update Task #<span id="tmTaskId"></span></h2>
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;vertical-align:-3px;opacity:0.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Update Task #<span id="tmTaskId"></span>
+        </h2>
+        <button class="modal-close" onclick="closeTaskModal()">&times;</button>
+      </div>
       <form id="taskStatusForm">
-        <div class="form-group"><label class="form-label">Status</label><select class="form-select" id="tmStatus"><option>Pending</option><option>InProgress</option><option>Completed</option></select></div>
-        <div class="form-group"><label class="form-label">Notes</label><textarea class="form-textarea" id="tmNotes" rows="2"></textarea></div>
-        <button type="submit" class="btn-submit">Update Task</button>
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <select class="form-select" id="tmStatus">
+            <option>Pending</option>
+            <option>InProgress</option>
+            <option>Completed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Notes</label>
+          <textarea class="form-textarea" id="tmNotes" rows="3" placeholder="Add progress notes..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px"><path d="M9 11l3 3L22 4"/></svg>
+          Update Task
+        </button>
         <div class="form-message" id="taskMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Update Stock Modal (staff can update quantity only, not reorder level) -->
+  <div class="modal-overlay" id="stockModal">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;vertical-align:-3px;opacity:0.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Update Stock
+        </h2>
+        <button class="modal-close" onclick="closeStockModal()">&times;</button>
+      </div>
+      <form id="stockForm">
+        <input type="hidden" id="stockId" />
+        <div class="form-group">
+          <label class="form-label">Product</label>
+          <input class="form-input" id="stockProductName" readonly style="opacity:0.7;cursor:default;background:#f5f7f5;" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Quantity (kg)</label>
+          <input class="form-input" type="number" step="0.01" id="stockQty" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Reorder Level (kg)</label>
+          <input class="form-input" type="number" step="0.01" id="stockReorder" readonly style="opacity:0.5;cursor:not-allowed;background:#f5f7f5;" />
+          <small class="staff-readonly-hint">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Reorder level can only be changed by Admin
+          </small>
+        </div>
+        <button type="submit" class="btn-submit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+          Update Stock
+        </button>
+        <div class="form-message" id="stockMsg"></div>
       </form>
     </div>
   </div>

@@ -236,10 +236,16 @@ quoteForm.addEventListener("submit", async (e) => {
   const email   = document.getElementById("qEmail").value.trim();
   const phone   = document.getElementById("qPhone").value.trim();
   const product = document.getElementById("qProduct").value;
-  const qty     = parseInt(document.getElementById("qQty").value);
+  const qtyRaw  = document.getElementById("qQty").value;
+  const qty     = parseInt(qtyRaw);
 
-  if (!name || !product || !qty) {
+  if (!name || !product || !qtyRaw) {
     showFormMessage(formMsg, "error", "Please fill in all required fields.");
+    return;
+  }
+
+  if (isNaN(qty) || qty < 1 || qty > 100000) {
+    showFormMessage(formMsg, "error", "Quantity must be between 1 and 100,000 kg.");
     return;
   }
 
@@ -267,9 +273,14 @@ quoteForm.addEventListener("submit", async (e) => {
       quoteForm.reset();
     } else {
       const errorData = await response.json();
-      const errorText = errorData.errors
-        ? Object.values(errorData.errors).flat().join(" ")
-        : "Could not submit. Please check your input.";
+      let errorText = "Could not submit. Please check your input.";
+      if (errorData.errors) {
+        errorText = Object.values(errorData.errors).flat().join(" ");
+      } else if (errorData.message) {
+        errorText = errorData.message;
+      } else if (errorData.title) {
+        errorText = errorData.title;
+      }
       showFormMessage(formMsg, "error", errorText);
     }
 
@@ -380,9 +391,9 @@ loginForm.addEventListener("submit", async (e) => {
 
       setTimeout(() => {
         const role = data.user.role;
-        if (role === "Admin") window.location.href = "admin.html";
-        else if (role === "Staff") window.location.href = "staff.html";
-        else window.location.href = "customer.html";
+        if (role === "Admin") window.location.replace("admin.html");
+        else if (role === "Staff") window.location.replace("staff.html");
+        else window.location.replace("customer.html");
       }, 1200);
     } else {
       const errData = await response.json();
@@ -441,7 +452,7 @@ registerForm.addEventListener("submit", async (e) => {
       showFormMessage(registerMsg, "success", `✅ Account created! Welcome, ${data.user.fullName}! Redirecting...`);
 
       setTimeout(() => {
-        window.location.href = "customer.html";
+        window.location.replace("customer.html");
       }, 1200);
     } else {
       const errData = await response.json();
