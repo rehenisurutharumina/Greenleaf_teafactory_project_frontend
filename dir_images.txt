@@ -1,9 +1,0 @@
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\FactoryWebsite\premium-bg.jpg
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\FactoryWebsite\hero-bg.png
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\FactoryWebsite\_archive\assets\tea-estate-bg.jpg
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\GreenLeafTeaAPI-Backend\GreenLeafTeaAPI\wwwroot\uploads\5f19ea9b-fb6f-44b1-adbe-6f111c619566.jpg
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\GreenLeafTeaAPI-Backend\GreenLeafTeaAPI\wwwroot\uploads\771833dc-81b9-4d4e-9b29-5030fdbdb95a.jpg
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\GreenLeafTeaAPI-Backend\GreenLeafTeaAPI\wwwroot\uploads\8b575048-b269-42dc-80d9-f66c22f7c839.jpg
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\GreenLeafTeaAPI-Backend\GreenLeafTeaAPI\wwwroot\uploads\e7f7f04f-e357-47fc-ba04-6888218f8589.jpg
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\GreenLeafTeaAPI-Backend\GreenLeafTeaAPI\wwwroot\uploads\0333068c-c6ab-48da-bdbd-c56e8c06dd3c.png
-c:\Users\tharu\Downloads\Greenleaf_Project_step2\TEA_FACTORY\GreenLeafTeaAPI-Backend\GreenLeafTeaAPI\wwwroot\uploads\548e1c39-db88-4af1-a6a3-4da5d162cf3d.png
