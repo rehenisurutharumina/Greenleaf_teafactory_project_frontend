@@ -830,7 +830,7 @@ ol {
    ========================================================== */
 .products {
   padding: var(--section-py) 0;
-  background: url('premium-bg.jpg') center/cover no-repeat fixed;
+  background: url('/src/assets/images/premium-bg.jpg') center/cover no-repeat fixed;
   position: relative;
 }
 
@@ -1054,7 +1054,7 @@ ol {
    ========================================================== */
 .contact {
   padding: var(--section-py) 0;
-  background: url('contact-bg.jpg') center/cover no-repeat fixed;
+  background: url('/src/assets/images/contact-bg.jpg') center/cover no-repeat fixed;
   position: relative;
 }
 
