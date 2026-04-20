@@ -16,7 +16,8 @@ export default defineConfig({
     // Proxy API calls to the .NET backend during development
     proxy: {
       "/api": {
-        target: "http://localhost:5001",
+        // target: "http://localhost:5001", 
+        target: "https://greeleaf-dnfqcpgthydgb9da.southeastasia-01.azurewebsites.net/",
         changeOrigin: true,
       },
     },
