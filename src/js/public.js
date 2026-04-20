@@ -599,3 +599,9 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProducts();
   handleScroll(); // set initial state
 });
+
+// Expose functions to the global window object for inline onclick handlers
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.switchModal = switchModal;
+window.logout = logout;
